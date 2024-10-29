@@ -60,7 +60,7 @@
     </p>
     <p>
         <b><label id="lable">Age:</label></b>
-        <select required id="input-age" onclick="clearField(this)">
+        <select required id="input-age">
             <option value="">Select...</option>
             <option value="over 13">Over 13</option>
             <option value="under 13">Under 13</option>
@@ -80,6 +80,8 @@ function validateForm() {
     const surname = document.getElementById('input-surname').value.trim();
     const email = document.getElementById('input-email').value.trim();
     const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/; // Email validation pattern
+    const age = document.getElementById('input-age').value.trim();
+    const genderChecked = document.querySelector('input[name="sexx"]:checked');
 
     // Check for valid email
     if (!emailPattern.test(email)) {
@@ -95,6 +97,16 @@ function validateForm() {
     
     if (!surname) {
         alert('Surname is a required field.');
+        return false; // Prevent form submission
+    }
+
+    if (!genderChecked) {
+        alert('Gender is a required field.');
+        return false; // Prevent form submission
+    }
+
+    if (!age) {
+        alert('Age is a required field.');
         return false; // Prevent form submission
     }
 
