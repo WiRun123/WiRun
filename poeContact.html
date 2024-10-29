@@ -41,68 +41,64 @@
 <h2 id="contact-h2">REGISTER</h2>
 
 <form id="myForm" action="mailto:ateam7013@gmail.com" method="get" onsubmit="return validateForm()">
- <p>
-<b><label id="lable">Name:</label></b>
-<input placeholder="Enter name" required id="input-name" onclick="clearField(this)">
- </p>
- <p>
- <b><label id="lable">Surname:</label></b>
- <input placeholder="Enter surname" required id="input-surname" onclick="clearField(this)">
-</p>
-<p>
- <b><label id="lable">Email:</label></b>
- <input placeholder="Enter email" required type="email" id="input-email" onclick="clearField(this)">
- </p>
-<p>
- <b><label id="lable">Gender:</label></b>
- <input type="radio" name="sexx" value="female" required id="input-female">Female
-<input type="radio" name="sexx" value="male" id="input-male"> Male
-</p>
-<p>
- <b><label id="lable">Age:</label></b>
-<select required id="input-age" onclick="clearField(this)">
- <option value="">Select...</option>
-<option value="over 13">Over 13</option>
- <option value="under 13">Under 13</option>
- </select>
-</p>
-<input type="reset" id="input-2">
- <input type="submit" id="input-2">
+    <p>
+        <b><label id="lable">Name:</label></b>
+        <input placeholder="Enter name" required id="input-name" onclick="clearField(this)">
+    </p>
+    <p>
+        <b><label id="lable">Surname:</label></b>
+        <input placeholder="Enter surname" required id="input-surname" onclick="clearField(this)">
+    </p>
+    <p>
+        <b><label id="lable">Email:</label></b>
+        <input placeholder="Enter email" required type="email" id="input-email" onclick="clearField(this)">
+    </p>
+    <p>
+        <b><label id="lable">Gender:</label></b>
+        <input type="radio" name="sexx" value="female" required id="input-female">Female
+        <input type="radio" name="sexx" value="male" id="input-male"> Male
+    </p>
+    <p>
+        <b><label id="lable">Age:</label></b>
+        <select required id="input-age" onclick="clearField(this)">
+            <option value="">Select...</option>
+            <option value="over 13">Over 13</option>
+            <option value="under 13">Under 13</option>
+        </select>
+    </p>
+    <input type="reset" id="input-2">
+    <input type="submit" id="input-2">
 </form>
+
 <script>
 function clearField(field) {
-    field.value = ''; // clear the input field when clicked
+    field.value = ''; // Clear the input field when clicked
 }
+
 function validateForm() {
-const name = document.getElementById('input-name').value.trim();
-const surname = document.getElementById('input-surname').value.trim();
-const email = document.getElementById('input-email').value.trim();
-const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/; // email validation pattern
-const age = document.getElementById('input-age').value.trim();
-const genderChecked = document.querySelector('input[name="sexx"]:checked');
-    // check for valid email
-if (!emailPattern.test(email)) {
- alert('Please enter a valid email address.');
- return false; // stop form submission
-}
-    // check for required fields
-if (!name) {
-    alert('Name is a required field.');
-return false; // stop form submission
+    const name = document.getElementById('input-name').value.trim();
+    const surname = document.getElementById('input-surname').value.trim();
+    const email = document.getElementById('input-email').value.trim();
+    const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/; // Email validation pattern
+
+    // Check for valid email
+    if (!emailPattern.test(email)) {
+        alert('Please enter a valid email address.');
+        return false; // Prevent form submission
     }
- if (!surname) {
-  alert('Surname is a required field.');
-return false; // stop form submission
+
+    // Check for required fields
+    if (!name) {
+        alert('Name is a required field.');
+        return false; // Prevent form submission
     }
-    if (!genderChecked) {
- alert('Gender is a required field.');
-return false; // stop form submission
-}
-    if (!age) {
-alert('Age is a required field.');
-return false; // stop form submission
-}
- return true; // allow form submission if everything is valid
+    
+    if (!surname) {
+        alert('Surname is a required field.');
+        return false; // Prevent form submission
+    }
+
+    return true; // Allow form submission if everything is valid
 }
 </script>
 
